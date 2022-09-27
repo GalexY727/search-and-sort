@@ -15,7 +15,34 @@ public class Merge
    * Returns the sorted array
    */
   public static int[] sort(int[] arr) {
-    // Your algorithm goes here!
+
+    int N = arr.length;
+
+    if (N <= 1) { return arr; }
+    else {
+      int middle = M / 2;
+      int leftLength = middle;
+      int rightLeft = N - leftLength;
+      int index = 0;
+      int[] left = new int[0];
+      while (index < middle) {
+        left = new int[]{arr[index]};
+        index++;
+      }
+      int rightIndex = 0;
+      index = middle;
+      int[] right = new int[0];
+      while (index < N) {
+        right = new int[]{arr[index]};
+        rightIndex++;
+        index++;
+      }
+      sort(left);
+      sort(right);
+      int[] newArr = new int[0];
+      System.arraycopy(arr, 0, left, 0, right, 0);
+      return newArr ;
+    }
 
   }
   

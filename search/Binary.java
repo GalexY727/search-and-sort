@@ -1,5 +1,5 @@
 package search;
-
+import sort.Merge;
 /**
  * Write a description of class Binary here.
  * 
@@ -17,7 +17,37 @@ public class Binary
     // Note... I know that the standard Java Arrays class has a method called
     // binarySearch.  If you use it for testing, but you need to implement the algorithm
     // to get the point!
-    
+
+    for (int i = 0; i < arr.length/2; i++) {
+      int low = arr[i];
+      int high = arr[arr.length - i - 1];
+
+      if (low <= target && target <= high)
+      {
+
+        if (low == target) { return i; }
+        else if (high == target) { return arr.length - i - 1; }
+
+        else
+        {
+          int middle = (low + high)/2;
+
+          if (middle == target)
+          {
+            return i + (arr.length - i - 1 - i)/2;
+          }
+//          else if (middle < target)
+//          {
+//            return search(arr, target);
+//          }
+//          else
+//          {
+//            return search(arr, target);
+//          }
+        }
+      }
+
+    }
   }
   
   public static void main(String[] args) {
@@ -27,6 +57,7 @@ public class Binary
       
     // Remember that a binary search requires a sorted array!
     // You can use one of your sorting methods here.
+    arr = Merge.sort(arr);
     
 
     ////////////////////////////////////////////////////////////
