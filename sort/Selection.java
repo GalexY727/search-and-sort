@@ -30,6 +30,7 @@ public class Selection
         arr[i] = arr[min];
         arr[min] = temp;
     }
+    return arr;
   }
   
   public static void main(String[] args) {
@@ -50,6 +51,7 @@ public class Selection
       }
     }
     System.out.println("SUCCESS!");
+    System.out.println(Arrays.toString(arr));
   }
 
 }

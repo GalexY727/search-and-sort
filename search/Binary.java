@@ -36,18 +36,20 @@ public class Binary
           {
             return i + (arr.length - i - 1 - i)/2;
           }
-//          else if (middle < target)
-//          {
-//            return search(arr, target);
-//          }
-//          else
-//          {
-//            return search(arr, target);
-//          }
+          else if (middle < target)
+          {
+            return search(arr, target);
+          }
+          else
+          {
+            return search(arr, target);
+          }
         }
       }
 
+
     }
+    return -1;
   }
   
   public static void main(String[] args) {

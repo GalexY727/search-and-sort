@@ -23,6 +23,7 @@ public class Sequential
         }
     }
     // Nice and easy, just not efficient :(
+    return -1;
   }
   
   public static void main(String[] args) {

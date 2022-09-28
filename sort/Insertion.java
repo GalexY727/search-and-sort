@@ -19,7 +19,8 @@ public class Insertion
     for (int i = 1; i < arr.length; i++)
     {
         int j = i;
-        while (arr[j] < arr[j-1])
+
+        while (j > 0 && arr[j] < arr[j-1])
         {
             int temp = arr[j];
             arr[j] = arr[j-1];
@@ -27,6 +28,7 @@ public class Insertion
             j--;
         }
     }
+    return arr;
   }
   
   public static void main(String[] args) {
@@ -47,6 +49,7 @@ public class Insertion
       }
     }
     System.out.println("SUCCESS!");
+    System.out.println(Arrays.toString(arr));
   }
 
 }

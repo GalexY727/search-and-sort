@@ -18,30 +18,49 @@ public class Merge
 
     int N = arr.length;
 
-    if (N <= 1) { return arr; }
-    else {
-      int middle = M / 2;
-      int leftLength = middle;
-      int rightLeft = N - leftLength;
-      int index = 0;
-      int[] left = new int[0];
-      while (index < middle) {
-        left = new int[]{arr[index]};
-        index++;
+    if (N < 2) { return arr; }
+
+    int m = N/2;
+    // Split the array into two halves
+    int[] l = new int[m];
+    int[] r = new int[N-m];
+    // Create the left and right arrays
+    System.arraycopy(arr, 0, l, 0, m);
+    System.arraycopy(arr, m, r, 0, N - m);
+    // Sort the left and right arrays via recursion
+    // Which leads to the ends of the arrays.
+    sort(l);
+    sort(r);
+    // Merge the left and right arrays
+    merge(arr, l, r);
+    return arr;
+
+
+  }
+  public static void merge(int[] arr, int[] l, int[] r)
+  {
+    int i = 0, j = 0, k = 0;
+
+    // i is the index of the left array
+    // j is the index of the right array
+    // k is the index of the merged array
+
+    while (i < l.length && j < r.length)
+    {
+      if (l[i] <= r[j])
+      {
+        arr[k] = l[i];
+        i++;
+
       }
-      int rightIndex = 0;
-      index = middle;
-      int[] right = new int[0];
-      while (index < N) {
-        right = new int[]{arr[index]};
-        rightIndex++;
-        index++;
+      else
+      {
+        arr[k] = r[j];
+        j++;
+
       }
-      sort(left);
-      sort(right);
-      int[] newArr = new int[0];
-      System.arraycopy(arr, 0, left, 0, right, 0);
-      return newArr ;
+      k++;
+
     }
 
   }
@@ -64,6 +83,7 @@ public class Merge
       }
     }
     System.out.println("SUCCESS!");
+    System.out.println(Arrays.toString(arr));
   }
 
 }
