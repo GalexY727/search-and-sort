@@ -36,14 +36,15 @@ public class Binary
           {
             return i + (arr.length - i - 1 - i)/2;
           }
-          else if (middle < target)
-          {
-            return search(arr, target);
-          }
-          else
-          {
-            return search(arr, target);
-          }
+
+//          else if (middle < target)
+//          {
+//            return search(arr, target);
+//          }
+//          else
+//          {
+//            return search(arr, target);
+//          }
         }
       }
 
@@ -59,8 +60,8 @@ public class Binary
       
     // Remember that a binary search requires a sorted array!
     // You can use one of your sorting methods here.
-    arr = Merge.sort(arr);
-    
+    Merge.sort(arr);
+
 
     ////////////////////////////////////////////////////////////
     // Do not change anything below this line!!
