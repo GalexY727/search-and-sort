@@ -22,9 +22,9 @@ public class Binary
       int low = arr[i];
       int high = arr[arr.length - i - 1];
 
-      if (low <= target && target <= high)
+      while (low <= target && target <= high)
       {
-
+        // Check if the target is one of the extremes
         if (low == target) { return i; }
         else if (high == target) { return arr.length - i - 1; }
 
@@ -32,19 +32,15 @@ public class Binary
         {
           int middle = (low + high)/2;
 
-          if (middle == target)
-          {
-            return i + (arr.length - i - 1 - i)/2;
-          }
-
-//          else if (middle < target)
-//          {
-//            return search(arr, target);
-//          }
-//          else
-//          {
-//            return search(arr, target);
-//          }
+          if (middle == target) { return i + (arr.length - i - 1 - i)/2; }
+            else if (middle < target)
+            {
+              high = middle;
+            }
+            else
+            {
+              low = middle;
+            }
         }
       }
 
